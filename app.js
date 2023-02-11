@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/files', express.static(path.join(__dirname, 'files')));
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://frontend-ecommerce-7xjw.onrender.com/',
 }))
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
