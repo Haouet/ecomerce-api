@@ -29,7 +29,7 @@ const options = {
     },
     servers: [
       {
-        url: process.env.BASE_URL,
+        url: "https://backend-ecommerce-exw7.onrender.com",
       },
     ],
     components: {
