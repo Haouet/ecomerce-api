@@ -2,6 +2,8 @@ var createError = require('http-errors');
 var express = require('express');
 const mongoose = require("mongoose");
 var path = require('path');
+var swaggerJsDoc = require("swagger-jsdoc");
+var swaggerUi = require("swagger-ui-express");
 var cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 var logger = require('morgan');
@@ -17,6 +19,37 @@ var filesRouter = require("./routes/files");
 
 var app = express();
 
+const options = {
+  definition: {
+    openapi: "3.0.1",
+    info: {
+      title: "Ecommerce API",
+      version: "1.0.0",
+      description: "REST API documentation",
+    },
+    servers: [
+      {
+        url: "http://localhost:5000",
+      },
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
+  },
+  apis: ["./routes/*.js"],
+};
+const specs = swaggerJsDoc(options);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -30,7 +63,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/files', express.static(path.join(__dirname, 'files')));
 app.use(cors({
-    origin: 'https://frontend-ecommerce-7xjw.onrender.com/',
+    origin: 'http://localhost:3000',
 }))
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
@@ -39,6 +72,7 @@ app.use('/api/cat', catRouter);
 app.use("/api/files", filesRouter); 
 app.use("/api/address", addressRouter);
 app.use("/api/orders", ordersRouter);
+app.use("/api/doc/v1", swaggerUi.serve, swaggerUi.setup(specs));
 app.post('/email', async(req, res)=>{
   try{
     console.log("Sending mail ...");
