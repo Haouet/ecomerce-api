@@ -13,6 +13,10 @@ var auth = require("../middlewares/auth");
  *                  - email
  *                  - password
  *                  - first_name
+ *                  - last_name
+ *                  - phone
+ *                  - role
+ *                  - address
  *              properties:
  *                  id:
  *                      type: string
@@ -26,12 +30,34 @@ var auth = require("../middlewares/auth");
  *                  password:
  *                      type: string
  *                      description: the password
+ *                  first_name:
+ *                      type: string
+ *                      description: the first_name
+ *                  last_name:
+ *                      type: string
+ *                      description: the last_name
+ *                  phone:
+ *                      type: string
+ *                      description: the phone number
+ *                  role: 
+ *                     type: string
+ *                     description: the role of the user  
+ *  
  *              example:
  *                  id: 637b4ef3d720af0bb53cb696
  *                  username: taher
  *                  email: taherhaouet@gmail.com
  *                  password: $2a$10$brTNlJ5tKh1qdjR6abVWJeNC7/VORH.9.1vJBGusOYP5ESoKUJbIq
- *                  first_name: Taher
+ *                  first_name: Taher                   
+ *                  last_name: haouet
+ *                  phone: 52928451
+ *                  role: User
+ *                  address: 
+ *                        _id: 637b4ef3d720af0bb53cb694
+ *                        country: tunisie
+ *                        city: la marsa
+ *                        road: habib bourghiba                       
+ *                    
  */
 /**
  * @swagger
