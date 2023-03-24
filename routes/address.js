@@ -193,6 +193,7 @@ router.get("/country/:country/city/:city", addressCtrl.getRoads);
  */
 
 router.post("/", auth, addressCtrl.addOneAddress);
+
 router.post("/many", addressCtrl.addManyAddress);
 router.put("/:id", auth, addressCtrl.updateAddressId);
 router.delete("/:id", auth, addressCtrl.deleteAddress);

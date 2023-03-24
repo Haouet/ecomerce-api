@@ -1,7 +1,39 @@
 var express = require('express');
 var router = express.Router();
 var catCtl = require('../controllers/cat');
-
+/**
+ * @swagger
+ *  components:
+ *      schemas:
+ *          Category:
+ *              type: object
+ *              required:
+ *                  - name
+ *                  - desc                   
+ *              properties:
+ *                  id:
+ *                      type: string
+ *                      description: auto generated unique id of the category
+ *                  name:
+ *                      type: string
+ *                      description: the category name
+ *                  desc:
+ *                      type: string
+ *                      description: the description category            
+ *  
+ *              example:
+ *                  id: 636b93a181bc3489dafdeaa1
+ *                  name: Fruit & Nut Gifts
+ *                  desc: Fruit & Nut Gifts                                       
+ *                    
+ */
+/**
+ * @swagger
+ *  tags:
+ *      name: Category
+ *      description: The category managing API
+ */
+/**
 /* GET persons listing. */
 router.get('/',catCtl.getAllCat);
 router.get('/:id',catCtl.getByid);
