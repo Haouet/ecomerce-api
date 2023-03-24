@@ -33,11 +33,82 @@ var catCtl = require('../controllers/cat');
  *      name: Category
  *      description: The category managing API
  */
+
 /**
+ * @swagger
+ * /api/cat:
+ *  get:
+ *      summary: Get all categorys
+ *      tags: [Category]
+ *      responses:
+ *          200:
+ *              description: The list of the category
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: array
+ *                          items:
+ *                              $ref: '#/components/schemas/Category'
+ *          404:
+ *              description: No category were found
+ */
 /* GET persons listing. */
 router.get('/',catCtl.getAllCat);
+
+
+/**
+ * @swagger
+ * /api/cat/{id}:
+ *  get:
+ *      summary: Get category by id
+ *      tags: [Category]
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          schema:
+ *              type: string
+ *          description: The category id
+ *      responses:
+ *          200:
+ *              description: Category object by id
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          items:
+ *                              $ref: '#/components/schemas/Category'
+ *          404:
+ *              description: No category found
+ */
 router.get('/:id',catCtl.getByid);
-/* GET person by id. */
+/* GET category by id. */
+
+
+/**
+ * @swagger
+ * /api/cat/name/{name}:
+ *  get:
+ *      summary: Get category by name
+ *      tags: [Category]
+ *      parameters:
+ *        - in: path
+ *          name: name
+ *          required: true
+ *          schema:
+ *              type: string
+ *          description: category Name
+ *      responses:
+ *          200:
+ *              description: category list by  name
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          items:
+ *                              $ref: '#/components/schemas/Category'
+ *          404:
+ *              description: No category found
+ */
+
 router.get('/name/:name',catCtl.getByName);
 // router.get('/:id',personCtl.getPerson);
 // /* GET user listing. 
