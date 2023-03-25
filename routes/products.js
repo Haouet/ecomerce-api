@@ -34,13 +34,13 @@ var upload = require("../middlewares/multer-config");
  *                      type: Number
  *                      description: the quantity product   
  *                  category:
- *                      type: string
+ *                      type: object
  *                      description: the category product  
  *                  thumbnail:
  *                      type: string
  *                      description: the category product 
  *                  images:
- *                      type: string
+ *                      type: array
  *                      description: the category product 
  *  
  *              example:
