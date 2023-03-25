@@ -28,10 +28,10 @@ var upload = require("../middlewares/multer-config");
  *                      type: string
  *                      description: the description product        
  *                  price :
- *                      type: string
+ *                      type: Number
  *                      description: the price product    
  *                  stock :
- *                      type: string
+ *                      type: Number
  *                      description: the quantity product   
  *                  category:
  *                      type: string
@@ -102,24 +102,48 @@ router.get('/category/:name', productCtl.getProductByCatName);
  *    summary: Add a new product
  *    tags: [Products]
  *    parameters:
- *      - title: Country
- *        description: Country of the new address
+ *      - title: title
+ *        description: title of the new product
  *        in: body
  *        required: true
  *        type: string
- *        example: Tunisia
- *      - name: "City"
- *        description: City of the new address
+ *        example: product 2023
+ *      - description: description
+ *        description: description of the new product
  *        in: body
  *        required: true
  *        type: string
- *        example: Sfax
- *      - name: Road
- *        description: Road of the new address
+ *        example: description of new product 2023
+ *      - price: price
+ *        description: price of the new product
+ *        in: body
+ *        required: true
+ *        type: number
+ *        example: price product 2023
+ *      - stock: stock 
+ *        description: stock of the new product
+ *        in: body
+ *        required: true
+ *        type: number
+ *        example: stock  product 2023
+ *      - category: category
+ *        description: category of the new product
  *        in: body
  *        required: true
  *        type: string
- *        example: Centre Ville
+ *        example: Fruit & Nut Gifts
+ *      - thumbnail: thumbnail 
+ *        description: thumbnail of the new product
+ *        in: body
+ *        required: true
+ *        type: string
+ *        example: https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Banana.png/800px-Banana.png
+ *      - images: images
+ *        description: images of the new product
+ *        in: body
+ *        required: true
+ *        type: string
+ *        example: ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Banana.png/800px-Banana.png"]
  *    responses:
  *      201:
  *        description: New address created
