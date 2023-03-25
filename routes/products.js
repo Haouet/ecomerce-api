@@ -50,20 +50,15 @@ var upload = require("../middlewares/multer-config");
  *                  price: 200
  *                  stock": 5
  *                  category: 
- *                       {
- *                         id: 636b93a181bc3489dafdeaa0
- *                          name: Vegetables
- *                          desc: Vegetables
- *                       }
+ *                      id: 636b93a181bc3489dafdeaa0
+ *                      name: Vegetables
+ *                      desc: Vegetables
  *                  images: 
- *                       [  
- *                        {
- *                          id: 638769497ece3db6ae8280c4
- *                          name: pd-4.jpg
- *                          type: image/jpeg
- *                          fileUrl: http://localhost:5000/files/images-20221130143137567-pd-4.jpg
- *                         }
- *                      ]                               
+ *                      id: 638769497ece3db6ae8280c4
+ *                      name: pd-4.jpg
+ *                      type: image/jpeg
+ *                      fileUrl: http://localhost:5000/files/images-20221130143137567-pd-4.jpg
+ *                                                   
  *                    
  */
 /**
@@ -100,6 +95,52 @@ router.get('/paginate',productCtl.getAllProductsPagination);
 router.get('/cat/:id', productCtl.getProductByCat);
 router.get('/:title', productCtl.getProductByTitle);
 router.get('/category/:name', productCtl.getProductByCatName);
+/**
+ * @swagger
+ * /api/product/add:
+ *  post:
+ *    summary: Add a new product
+ *    tags: [Products]
+ *    parameters:
+ *      - title: Country
+ *        description: Country of the new address
+ *        in: body
+ *        required: true
+ *        type: string
+ *        example: Tunisia
+ *      - name: "City"
+ *        description: City of the new address
+ *        in: body
+ *        required: true
+ *        type: string
+ *        example: Sfax
+ *      - name: Road
+ *        description: Road of the new address
+ *        in: body
+ *        required: true
+ *        type: string
+ *        example: Centre Ville
+ *    responses:
+ *      201:
+ *        description: New address created
+ *        schema:
+ *          type: object
+ *          properties:
+ *            success:
+ *              description: New address created
+ *              type: boolean
+ *              example: true
+ *      400:
+ *        description: Please check provided values
+ *        schema:
+ *          type: object
+ *          properties:
+ *            success:
+ *              description: Please check provided values
+ *              type: boolean
+ *              example: false
+ */
+
 // :5000/product/add */
  router.post('/add',upload.array("images"),productCtl.addproduct);
 // //Add All products :5000/product/addall
