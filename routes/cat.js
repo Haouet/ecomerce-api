@@ -114,6 +114,35 @@ router.get('/name/:name',catCtl.getByName);
 // /* GET user listing. 
 // :3000/persons/add */
 // router.post('/add',catCtl.addCat);
+
+
+
+/**
+ * @swagger
+ * /api/cat/addall:
+ *  post:
+ *      summary: Add all category
+ *      tags: [Category]
+ *      parameters:
+ *        - in: path
+ *          name: name
+ *          required: true
+ *          schema:
+ *              type: string
+ *          description: category Name
+ *      responses:
+ *          200:
+ *              description: Add all category
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          items:
+ *                              $ref: '#/components/schemas/Category'
+ *          404:
+ *              description: Erreur add all category
+ */
+
+
 router.post('/addall',catCtl.addManyCat);
 // //Add All persons :3000/persons/addall
 // router.post('/addall',personCtl.addAll);
