@@ -121,26 +121,41 @@ router.get('/name/:name',catCtl.getByName);
  * @swagger
  * /api/cat/addall:
  *  post:
- *      summary: Add all category
- *      tags: [Category]
- *      parameters:
- *        - in: path
- *          name: name
- *          required: true
- *          schema:
- *              type: string
- *          description: category Name
+ *    summary: Add all category
+ *    tags: [Category]
+ *    parameters:
+ *      - name: name
+ *        description: name of the new category
+ *        in: body
+ *        required: true
+ *        type: string
+ *        example: Vegetables
+ *      - desc: Description"
+ *        description: Description of the new category
+ *        in: body
+ *        required: true
+ *        type: string
+ *        example: Description of Vegetables
  *      responses:
- *          200:
- *              description: Add all category
- *              content:
- *                  application/json:
- *                      schema:
- *                          items:
- *                              $ref: '#/components/schemas/Category'
- *          404:
- *              description: Erreur add all category
- */
+ *        201:
+ *          description: New category created
+ *          schema:
+ *            type: object
+ *            properties:
+ *              success:
+ *                description: New category created
+ *                type: boolean
+ *                example: true
+ *        400:
+ *          description: Please check provided values
+ *          schema:
+ *            type: object
+ *            properties:
+ *              success:
+ *                description: Please check provided values
+ *                type: boolean
+ *                example: false
+  */
 
 
 router.post('/addall',catCtl.addManyCat);

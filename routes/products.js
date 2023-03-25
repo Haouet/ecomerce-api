@@ -66,8 +66,27 @@ var upload = require("../middlewares/multer-config");
  *                      ]                               
  *                    
  */
-/* GET persons listing. */
+/**
+ * @swagger
+ * /api/product:
+ *  get:
+ *      summary: Get all products
+ *      tags: [Products]
+ *      responses:
+ *          200:
+ *              description: The list of the product
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: array
+ *                          items:
+ *                              $ref: '#/components/schemas/Products'
+ *          404:
+ *              description: No products were found
+ */
+
 router.get('/',productCtl.getAllProducts);
+
 router.get('/:id',productCtl.getProductId); 
 router.get('/paginate',productCtl.getAllProductsPagination);
 /* Get comment  member listing. */
