@@ -63,9 +63,9 @@ var upload = require("../middlewares/multer-config");
  */
 /**
  *  @swagger
- *  tags:
- *      name: Products
- *      description: The products managing API
+ *   tags:
+ *       name: Products
+ *       description: The products managing API
  */
 
 /**
@@ -146,12 +146,12 @@ router.get('/category/:name', productCtl.getProductByCatName);
  *        example: ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Banana.png/800px-Banana.png"]
  *    responses:
  *      201:
- *        description: New address created
+ *        description: New product created
  *        schema:
  *          type: object
  *          properties:
  *            success:
- *              description: New address created
+ *              description: New product created
  *              type: boolean
  *              example: true
  *      400:
