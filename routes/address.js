@@ -197,4 +197,28 @@ router.post("/", auth, addressCtrl.addOneAddress);
 router.post("/many", addressCtrl.addManyAddress);
 router.put("/:id", auth, addressCtrl.updateAddressId);
 router.delete("/:id", auth, addressCtrl.deleteAddress);
+/**
+ * @swagger
+ * /api/address/{id}:
+ *  delete:
+*      summary: delete addresses by id
+ *      tags: [Address]
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          schema:
+ *              type: string
+ *          description: Country Name
+ *      responses:
+ *          200:
+ *              description: Addresses list by country name
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          items:
+ *                              $ref: '#/components/schemas/Address'
+ *          404:
+ *              description: No address found
+ */
 module.exports = router;

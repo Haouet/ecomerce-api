@@ -6,16 +6,16 @@ var upload = require("../middlewares/multer-config");
  * @swagger
  *  components:
  *      schemas:
- *          Product
+ *          Products
  *              type: object
  *              required:
- *                  - title 
- *                  - description
- *                  - price 
- *                  - stock
- *                  - category
- *                  - thumbnail
- *                  - images                                  
+ *                   - title 
+ *                   - description
+ *                   - price 
+ *                   - stock
+ *                   - category
+ *                   - thumbnail
+ *                   - images                                  
  *              properties:
  *                  id:
  *                      type: string
@@ -71,7 +71,7 @@ var upload = require("../middlewares/multer-config");
  * /api/product:
  *  get:
  *      summary: Get all products
- *      tags: [Product]
+ *      tags: [Products]
  *      responses:
  *          200:
  *              description: The list of the product
@@ -80,7 +80,7 @@ var upload = require("../middlewares/multer-config");
  *                      schema:
  *                          type: array
  *                          items:
- *                              $ref: '#/components/schemas/product'
+ *                              $ref: '#/components/schemas/Products'
  *          404:
  *              description: No products were found
  */
@@ -91,7 +91,7 @@ router.get('/',productCtl.getAllProducts);
  * /api/product/{id}:
   *  get:
  *      summary: Get product by id
- *      tags: [product]
+ *      tags: [Products]
  *      parameters:
  *        - in: path
  *          name: id
@@ -106,7 +106,7 @@ router.get('/',productCtl.getAllProducts);
  *                  application/json:
  *                      schema:
  *                          items:
- *                              $ref: '#/components/schemas/product'
+ *                              $ref: '#/components/schemas/Products'
  *          404:
  *              description: No product found
  */
@@ -121,7 +121,7 @@ router.get('/category/:name', productCtl.getProductByCatName);
  * /api/product/add:
  *  post:
  *    summary: Add a new product
- *    tags: [product]
+ *    tags: [Products]
  *    parameters:
  *      - title: title
  *        description: title of the new product
