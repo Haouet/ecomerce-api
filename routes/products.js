@@ -6,7 +6,7 @@ var upload = require("../middlewares/multer-config");
  * @swagger
  *  components:
  *    schemas:
- *      Products
+ *      products
  *        type: object
  *        required:
  *          - title 
@@ -63,7 +63,7 @@ var upload = require("../middlewares/multer-config");
 /**
  *  @swagger
  *   tags:
- *       name: Products
+ *       name: products
  *       description: The products managing API
  */
 /**
@@ -71,7 +71,7 @@ var upload = require("../middlewares/multer-config");
  * /api/product:
  *  get:
  *      summary: Get all products
- *      tags: [Products]
+ *      tags: [products]
  *      responses:
  *          200:
  *              description: The list of the product
@@ -80,7 +80,7 @@ var upload = require("../middlewares/multer-config");
  *                      schema:
  *                          type: array
  *                          items:
- *                              $ref: '#/components/schemas/Products'
+ *                              $ref: '#/components/schemas/products'
  *          404:
  *              description: No products were found
  */
@@ -91,7 +91,7 @@ router.get('/',productCtl.getAllProducts);
  * /api/product/{id}:
   *  get:
  *      summary: Get product by id
- *      tags: [Products]
+ *      tags: [products]
  *      parameters:
  *        - in: path
  *          name: id
@@ -106,7 +106,7 @@ router.get('/',productCtl.getAllProducts);
  *                  application/json:
  *                      schema:
  *                          items:
- *                              $ref: '#/components/schemas/Products'
+ *                              $ref: '#/components/schemas/products'
  *          404:
  *              description: No product found
  */
@@ -121,7 +121,7 @@ router.get('/category/:name', productCtl.getProductByCatName);
  * /api/product/add:
  *  post:
  *    summary: Add a new product
- *    tags: [Products]
+ *    tags: [products]
  *    parameters:
  *      - title: title
  *        description: title of the new product
