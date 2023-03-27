@@ -5,58 +5,58 @@ var upload = require("../middlewares/multer-config");
 /**
  * @swagger
  *  components:
- *      schemas:
- *          Products
- *              type: object
- *              required:
- *                   - title 
- *                   - description
- *                   - price 
- *                   - stock
- *                   - category
- *                   - thumbnail
- *                   - images                                  
- *              properties:
- *                  id:
- *                      type: string
- *                      description: auto generated unique id of the product
- *                  title:
- *                      type: string
- *                      description: the product name
- *                  description:
- *                      type: string
- *                      description: the description product        
- *                  price :
- *                      type: Number
- *                      description: the price product    
- *                  stock :
- *                      type: Number
- *                      description: the quantity product   
- *                  category:
- *                      type: object
- *                      description: the category product  
- *                  thumbnail:
- *                      type: string
- *                      description: the category product 
- *                  images:
- *                      type: array
- *                      description: the category product 
+ *    schemas:
+ *      Products
+ *        type: object
+ *        required:
+ *          - title 
+ *          - description
+ *          - price 
+ *          - stock
+ *          - category
+ *          - thumbnail
+ *          - images                                  
+ *        properties:
+ *          id:
+ *            type: string
+ *            description: auto generated unique id of the product
+ *          title:
+ *            type: string
+ *            description: the product name
+ *          description:
+ *            type: string
+ *            description: the description product        
+ *          price :
+ *            type: Number
+ *            description: the price product    
+ *          stock :
+ *            type: Number
+ *            description: the quantity product   
+ *          category:
+ *             type: object
+ *             description: the category product  
+ *          thumbnail:
+ *             type: string
+ *             description: the category product 
+ *           images:
+ *             type: array
+ *             description: the category product 
  *  
- *              example:
- *                  id: 638769497ece3db6ae8280c7
- *                  title: produuuuu
- *                  description: prod2005
- *                  price: 200
- *                  stock": 5
- *                  category: 
- *                      _id: 636b93a181bc3489dafdeaa0
- *                      name: Vegetables
- *                      desc: Vegetables
- *                  images: 
- *                      _id: 638769497ece3db6ae8280c4
- *                      name: pd-4.jpg
- *                      type: image/jpeg
- *                      fileUrl: http://localhost:5000/files/images-20221130143137567-pd-4.jpg
+ *         example:
+ *           id: 638769497ece3db6ae8280c7
+ *           title: produuuuu
+ *           description: prod2005
+ *           price: 200
+ *           stock": 5
+ *           category: 
+ *              _id: 636b93a181bc3489dafdeaa0
+ *              name: Vegetables
+ *              desc: Vegetables
+ *           images: 
+ *              _id: 638769497ece3db6ae8280c4
+ *              name: pd-4.jpg
+ *              type: image/jpeg
+ *              fileUrl: http://localhost:5000/files/images-20221130143137567-pd-4.jpg
  *                                                   
  *                    
  */
