@@ -63,7 +63,7 @@ var upload = require("../middlewares/multer-config");
 /**
  *  @swagger
  *   tags:
- *       name: Product
+ *       name: product
  *       description: The products managing API
  */
 /**
@@ -80,7 +80,7 @@ var upload = require("../middlewares/multer-config");
  *                      schema:
  *                          type: array
  *                          items:
- *                              $ref: '#/components/schemas/Product'
+ *                              $ref: '#/components/schemas/product'
  *          404:
  *              description: No products were found
  */
@@ -91,7 +91,7 @@ router.get('/',productCtl.getAllProducts);
  * /api/product/{id}:
   *  get:
  *      summary: Get product by id
- *      tags: [Product]
+ *      tags: [product]
  *      parameters:
  *        - in: path
  *          name: id
@@ -106,7 +106,7 @@ router.get('/',productCtl.getAllProducts);
  *                  application/json:
  *                      schema:
  *                          items:
- *                              $ref: '#/components/schemas/Product'
+ *                              $ref: '#/components/schemas/product'
  *          404:
  *              description: No product found
  */
@@ -121,7 +121,7 @@ router.get('/category/:name', productCtl.getProductByCatName);
  * /api/product/add:
  *  post:
  *    summary: Add a new product
- *    tags: [Product]
+ *    tags: [product]
  *    parameters:
  *      - title: title
  *        description: title of the new product
