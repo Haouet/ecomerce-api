@@ -63,7 +63,7 @@ var upload = require("../middlewares/multer-config");
 /**
  *  @swagger
  *   tags:
- *       name: product
+ *       name: Products
  *       description: The products managing API
  */
 /**
