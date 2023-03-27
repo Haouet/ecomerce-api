@@ -196,7 +196,7 @@ router.post("/", auth, addressCtrl.addOneAddress);
 
 router.post("/many", addressCtrl.addManyAddress);
 router.put("/:id", auth, addressCtrl.updateAddressId);
-router.delete("/:id", auth, addressCtrl.deleteAddress);
+router.delete("/:id", addressCtrl.deleteAddress);
 /**
  * @swagger
  * /api/address/{id}:
