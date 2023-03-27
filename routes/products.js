@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var productCtl = require('../controllers/products');
 var upload = require("../middlewares/multer-config");
-
 /**
  * @swagger
  *  components:
@@ -50,11 +49,11 @@ var upload = require("../middlewares/multer-config");
  *                  price: 200
  *                  stock": 5
  *                  category: 
- *                      id: 636b93a181bc3489dafdeaa0
+ *                      _id: 636b93a181bc3489dafdeaa0
  *                      name: Vegetables
  *                      desc: Vegetables
  *                  images: 
- *                      id: 638769497ece3db6ae8280c4
+ *                      _id: 638769497ece3db6ae8280c4
  *                      name: pd-4.jpg
  *                      type: image/jpeg
  *                      fileUrl: http://localhost:5000/files/images-20221130143137567-pd-4.jpg
@@ -67,7 +66,6 @@ var upload = require("../middlewares/multer-config");
  *       name: Product
  *       description: The products managing API
  */
-
 /**
  * @swagger
  * /api/product:
@@ -88,7 +86,30 @@ var upload = require("../middlewares/multer-config");
  */
 
 router.get('/',productCtl.getAllProducts);
-
+/**
+ * @swagger
+ * /api/product/{id}:
+  *  get:
+ *      summary: Get product by id
+ *      tags: [Product]
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          schema:
+ *              type: string
+ *          description: The product id
+ *      responses:
+ *          200:
+ *              description: product object by id
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          items:
+ *                              $ref: '#/components/schemas/Product'
+ *          404:
+ *              description: No product found
+ */
 router.get('/:id',productCtl.getProductId); 
 router.get('/paginate',productCtl.getAllProductsPagination);
 /* Get comment  member listing. */
